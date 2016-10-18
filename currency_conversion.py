@@ -25,31 +25,31 @@ class Money:
         return self.total
 
     def __add__(self, other):
-        return Money((self.convert() + other.convert()) / self.conversion, self.symbol)
+        return (self.convert() + other.convert() / self.conversion, self.symbol)
 
     def __sub__(self, other):
-        return Money((self.convert() - other.convert()) / self.conversion, self.symbol)
+        return (self.convert() - other.convert() / self.conversion, self.symbol)
 
     def __mul__(self, other):
-        return Money((self.convert() * other.convert()) / self.conversion, self.symbol)
+        return (self.convert() * other.convert() / self.conversion, self.symbol)
 
     def __eq__(self, other):
-        return Money(self.convert) == Money(other.convert)
+        return self.convert() == other.convert()
 
     def __gt__(self, other):
-        return Money(self.convert()) > Money(other.convert())
+        return self.convert() > other.convert()
 
     def __ge__(self, other):
-        return Money(self.convert()) >= Money(other.convert())
+        return self.convert() >= other.convert()
 
     def __lt__(self, other):
-        return Money(self.convert()) < Money(other.convert())
+        return self.convert() < other.convert()
 
     def __le__(self, other):
-        return Money(self.convert()) <= Money(other.convert())
+        return self.convert() <= other.convert()
 
     def __ne__(self, other):
-        return Money(self.convert()) != Money(other.convert())
+        return self.convert() != other.convert()
 
     def __str__(self):
         return "{} {}".format(self.value, self.symbol)
@@ -63,4 +63,4 @@ class Money:
 btc = Money(500, "BTC")
 print(btc.convert())
 
-print ((Money(500, "EUR")) * (Money(20, "BTC")))
+print ((Money(500, "EUR")) > (Money(20, "BTC")))
